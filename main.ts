@@ -1,5 +1,5 @@
 function startGame() {
-    let arrow = sprites.create(assets.image`purpleArrow`, SpriteKind.Player)
+    //let arrow = sprites.create(assets.image`purpleArrow`, SpriteKind.Player)
     scene.setBackgroundColor(8)
     let scoreboard1 = sprites.create(img`
         fffffffffffffffffffffffffffff
@@ -125,10 +125,33 @@ function startGame() {
         f...........................f
         fffffffffffffffffffffffffffff
     `, SpriteKind.Projectile)
-    scoreboard1.setPosition(25, 80)
+    scoreboard1.setPosition(20, 80)
     scoreboard2.setPosition(60, 80)
-    scoreboard3.setPosition(95, 80)
-    scoreboard4.setPosition(130, 80)
+    scoreboard3.setPosition(100, 80)
+    scoreboard4.setPosition(140, 80)
+}
+
+function sendArrow (direction: string) {
+    let arrowSprite: Sprite = null
+    arrowSprite.y = 0
+    if (direction == "left") {
+        arrowSprite.setImage(assets.image`leftArrow`)
+        arrowSprite.x = 20
+    } else if (direction == "up") {
+        arrowSprite.setImage(assets.image`upArrow`)
+        arrowSprite.x = 60
+    } else if (direction == "down") {
+        arrowSprite.setImage(assets.image`downArrow`)
+        arrowSprite.x = 100
+    } else if (direction == "right") {
+        arrowSprite.setImage(assets.image`rightArrow`)
+        arrowSprite.x = 140
+    }
+}
+
+function startLevelZero (): void {
+
 }
 
 startGame()
+
