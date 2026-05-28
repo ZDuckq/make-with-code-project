@@ -147,6 +147,7 @@ function sendArrow (direction: string) {
         arrowSprite.setImage(assets.image`rightArrow`)
         arrowSprite.x = 140
     }
+    
 }
 
 function startLevelZero (): void {
