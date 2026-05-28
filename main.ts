@@ -154,5 +154,9 @@ function startLevelZero (): void {
 
 }
 
+function startLevelOne(): void {
+
+}
+
 startGame()
 
