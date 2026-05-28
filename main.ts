@@ -1,144 +1,10 @@
 namespace SpriteKind {
     export const Arrow = SpriteKind.create()
 }
-
-function startGame() {
-    //let arrow = sprites.create(assets.image`purpleArrow`, SpriteKind.Player)
-    scene.setBackgroundColor(8)
-    let scoreboard1 = sprites.create(img`
-        fffffffffffffffffffffffffffff
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        fffffffffffffffffffffffffffff
-    `, SpriteKind.Projectile)
-    let scoreboard2 = sprites.create(img`
-        fffffffffffffffffffffffffffff
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        fffffffffffffffffffffffffffff
-    `, SpriteKind.Projectile)
-    let scoreboard3 = sprites.create(img`
-        fffffffffffffffffffffffffffff
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        fffffffffffffffffffffffffffff
-    `, SpriteKind.Projectile)
-    let scoreboard4 = sprites.create(img`
-        fffffffffffffffffffffffffffff
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        f...........................f
-        fffffffffffffffffffffffffffff
-    `, SpriteKind.Projectile)
-    scoreboard1.setPosition(20, 80)
-    scoreboard2.setPosition(60, 80)
-    scoreboard3.setPosition(100, 80)
-    scoreboard4.setPosition(140, 80)
-    info.setScore(0)
-}
-
 function sendArrow (direction: string) {
-    let arrowSprite: Sprite = sprites.create(img`1`, SpriteKind.Arrow)
-    
+    arrowSprite = sprites.create(img`
+        1 
+        `, SpriteKind.Arrow)
     if (direction == "left") {
         arrowSprite.setImage(assets.image`leftArrow`)
         arrowSprite.x = 20
@@ -151,23 +17,57 @@ function sendArrow (direction: string) {
     } else if (direction == "right") {
         arrowSprite.setImage(assets.image`rightArrow`)
         arrowSprite.x = 140
-        
     }
     arrowSprite.y = 0
     arrowSprite.vy = 60
 }
 
-function startLevelZero (): void {
+controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
+    
+})
+
+controller.down.onEvent(ControllerButtonEvent.Pressed, function() {
+    
+})
+
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+
+})
+
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+
+})
+
+
+function startGame () {
+    // let arrow = sprites.create(assets.image`purpleArrow`, SpriteKind.Player)
+    scene.setBackgroundColor(8)
+    scoreboard1 = sprites.create(assets.image`scoreboardBackground`, SpriteKind.Projectile)
+    scoreboard2 = sprites.create(assets.image`scoreboardBackground`, SpriteKind.Projectile)
+    scoreboard3 = sprites.create(assets.image`scoreboardBackground`, SpriteKind.Projectile)
+    scoreboard4 = sprites.create(assets.image`scoreboardBackground`, SpriteKind.Projectile)
+    scoreboard1.setPosition(20, 80)
+    scoreboard2.setPosition(60, 80)
+    scoreboard3.setPosition(100, 80)
+    scoreboard4.setPosition(140, 80)
+    info.setScore(0)
+}
+function startLevelOne () {
+	
+}
+function startLevelZero () {
     sendArrow("left")
-    pause(400)
+    pause(500)
     sendArrow("down")
-    pause(400)
+    pause(500)
     sendArrow("up")
+    pause(500)
+    sendArrow("right")
 }
-
-function startLevelOne(): void {
-
-}
-
+let scoreboard4: Sprite = null
+let scoreboard3: Sprite = null
+let scoreboard2: Sprite = null
+let scoreboard1: Sprite = null
+let arrowSprite: Sprite = null
 startGame()
 startLevelZero()

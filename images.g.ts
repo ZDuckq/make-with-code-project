@@ -79,6 +79,34 @@ namespace myImages {
 . . . . . . . b . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `;
+            case "image5":
+            case "scoreboardBackground":return img`
+.......fffffffffff.......
+......fdddddddddddf......
+....ffdddddddddddddff....
+...fdddddddddddddddddf...
+..fdddddddddddddddddddf..
+..fdddddddddddddddddddf..
+.fdddddddddddddddddddddf.
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+fdddddddddddddddddddddddf
+.fdddddddddddddddddddddf.
+..fdddddddddddddddddddf..
+..fdddddddddddddddddddf..
+...fdddddddddddddddddf...
+....ffdddddddddddddff....
+......fdddddddddddf......
+.......fffffffffff.......
+`;
         }
         return null;
     })
