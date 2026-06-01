@@ -12,37 +12,55 @@ function sendArrow(direction: string) {
     } else if (direction == "up") {
         arrowSprite.setImage(assets.image`upArrow`)
         arrowSprite.x = 60
-        arrowList.push(arrowSprite.y)
+        upArrow.push(arrowSprite)
     } else if (direction == "down") {
         arrowSprite.setImage(assets.image`downArrow`)
         arrowSprite.x = 100
-        arrowList.push(arrowSprite.y)
+        downArrow.push(arrowSprite)
     } else if (direction == "right") {
         arrowSprite.setImage(assets.image`rightArrow`)
         arrowSprite.x = 140
-        arrowList.push(arrowSprite.y)
+        rightArrow.push(arrowSprite)
     }
     arrowSprite.y = 0
-    arrowSprite.vy = 60
+    arrowSprite.vy = 30
 }
 
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
-
+    lowestYValue = 0
+    for (let i = 0; i < upArrow.length; i++) {
+        if (lowestYValue < upArrow[i].y) {
+            lowestYValue = upArrow[i].y
+        }
+    }
+    info.changeScoreBy(100 / (80 - lowestYValue))
 })
 
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
-
+    lowestYValue = 0
+    for (let i = 0; i < downArrow.length; i++) {
+        if (lowestYValue < downArrow[i].y) {
+            lowestYValue = downArrow[i].y
+        }
+    }
+    info.changeScoreBy(100 / (80 - lowestYValue))
 })
 
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-
+    lowestYValue = 0
+    for (let i = 0; i < rightArrow.length; i++) {
+        if (lowestYValue < rightArrow[i].y) {
+            lowestYValue = rightArrow[i].y
+        }
+    }
+    info.changeScoreBy(100 / (80 - lowestYValue))
 })
+
+
 
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     lowestYValue = 0
-    let xLocation = 20
     for (let i = 0; i < leftArrow.length; i++) {
-        console.log(leftArrow[i].y)
         if (lowestYValue < leftArrow[i].y) {
             lowestYValue = leftArrow[i].y
         }
@@ -68,6 +86,11 @@ function startLevelOne() {
 
 }
 function startLevelZero() {
+    arrowList.removeAt(0)
+    leftArrow.removeAt(0)
+    upArrow.removeAt(0)
+    downArrow.removeAt(0)
+    rightArrow.removeAt(0)
     sendArrow("left")
     pause(500)
     sendArrow("down")
@@ -75,11 +98,11 @@ function startLevelZero() {
     sendArrow("up")
     pause(500)
     sendArrow("right")
-    arrowList.removeAt(0) 
-    leftArrow.removeAt(0)
-
 }
 let leftArrow: Sprite[] = []
+let upArrow: Sprite[] = []
+let downArrow: Sprite[] = []
+let rightArrow: Sprite[] = []
 let arrowList = [0]
 let lowestYValue: number = 0
 let scoreboard4: Sprite = null
