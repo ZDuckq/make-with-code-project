@@ -8,15 +8,19 @@ function sendArrow (direction: string) {
     if (direction == "left") {
         arrowSprite.setImage(assets.image`leftArrow`)
         arrowSprite.x = 20
+        arrowList.push(1)
     } else if (direction == "up") {
         arrowSprite.setImage(assets.image`upArrow`)
         arrowSprite.x = 60
+        arrowList.push(1)
     } else if (direction == "down") {
         arrowSprite.setImage(assets.image`downArrow`)
         arrowSprite.x = 100
+        arrowList.push(1)
     } else if (direction == "right") {
         arrowSprite.setImage(assets.image`rightArrow`)
         arrowSprite.x = 140
+        arrowList.push(1)
     }
     arrowSprite.y = 0
     arrowSprite.vy = 60
@@ -35,13 +39,13 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
-
+  
 })
 
 
 function startGame () {
     // let arrow = sprites.create(assets.image`purpleArrow`, SpriteKind.Player)
-    scene.setBackgroundColor(8)
+    scene.setBackgroundColor(9)
     scoreboard1 = sprites.create(assets.image`scoreboardBackground`, SpriteKind.Projectile)
     scoreboard2 = sprites.create(assets.image`scoreboardBackground`, SpriteKind.Projectile)
     scoreboard3 = sprites.create(assets.image`scoreboardBackground`, SpriteKind.Projectile)
@@ -64,6 +68,7 @@ function startLevelZero () {
     pause(500)
     sendArrow("right")
 }
+let arrowList = [0]
 let scoreboard4: Sprite = null
 let scoreboard3: Sprite = null
 let scoreboard2: Sprite = null
