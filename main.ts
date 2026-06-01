@@ -23,7 +23,7 @@ function sendArrow(direction: string) {
         rightArrow.push(arrowSprite)
     }
     arrowSprite.y = 0
-    arrowSprite.vy = 30
+    arrowSprite.vy = 60
 }
 
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -33,7 +33,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             lowestYValue = upArrow[i].y
         }
     }
-    info.changeScoreBy(100 / (80 - lowestYValue))
+    info.changeScoreBy(100 / (1 + Math.abs(((80 - lowestYValue)) / easynessToGetPerfect)))
 })
 
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -43,7 +43,7 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
             lowestYValue = downArrow[i].y
         }
     }
-    info.changeScoreBy(100 / (80 - lowestYValue))
+    info.changeScoreBy(100 / (1 + Math.abs(((80 - lowestYValue)) / easynessToGetPerfect)))
 })
 
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -53,7 +53,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
             lowestYValue = rightArrow[i].y
         }
     }
-    info.changeScoreBy(100 / (80 - lowestYValue))
+    info.changeScoreBy(100 / (1 + Math.abs(((80 - lowestYValue)) / easynessToGetPerfect)))
 })
 
 
@@ -65,7 +65,7 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
             lowestYValue = leftArrow[i].y
         }
     }
-    info.changeScoreBy(100/(80-lowestYValue))
+    info.changeScoreBy(100 / (1 + Math.abs(((80 - lowestYValue)) / easynessToGetPerfect)))
 })
 
 
@@ -92,11 +92,11 @@ function startLevelZero() {
     downArrow.removeAt(0)
     rightArrow.removeAt(0)
     sendArrow("left")
-    pause(500)
+    pause(750)
     sendArrow("down")
-    pause(500)
+    pause(750)
     sendArrow("up")
-    pause(500)
+    pause(750)
     sendArrow("right")
 }
 let leftArrow: Sprite[] = []
@@ -105,6 +105,7 @@ let downArrow: Sprite[] = []
 let rightArrow: Sprite[] = []
 let arrowList = [0]
 let lowestYValue: number = 0
+let easynessToGetPerfect = 13
 let scoreboard4: Sprite = null
 let scoreboard3: Sprite = null
 let scoreboard2: Sprite = null
